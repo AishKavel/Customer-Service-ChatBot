@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Bot</title>
+    <!-- Link to the CSS file in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <!-- Chatbox Header -->
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="User">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat Support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Jimmy. How can I help you?</p>
+                </div>
+            </div>
+
+            <!-- Chatbox Messages -->
+            <div class="chatbox__messages">
+                <!-- Messages will be dynamically injected here by JavaScript -->
+            </div>
+
+            <!-- Chatbox Footer -->
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message..." aria-label="User Message">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+
+        <!-- Chatbox Toggle Button -->
+        <div class="chatbox__button">
+            <button>
+                <img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" alt="Chatbox Icon" onerror="this.src='https://via.placeholder.com/48';">
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Inject Flask Script Root -->
+<script>
+    const $SCRIPT_ROOT = "{{ request.script_root|tojson|safe }}";
+</script>
+
+<!-- Link to the JavaScript file in the static folder -->
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
